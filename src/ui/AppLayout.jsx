@@ -1,13 +1,17 @@
-import Conversation from "../features/Conversation/Conversation"
-import Sidebar from "./Sidebar"
+import Conversation from "../features/Chats/Chat";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
 
 const AppLayout = () => {
   return (
-    <main className="flex">
-      <Sidebar />
-      <Conversation />
+    <main className="flex flex-col">
+      <Header />
+      <div className="flex">
+        <Sidebar />
+        <Conversation />
+      </div>
     </main>
-  )
-}
+  );
+};
 
-export default AppLayout
+export default AppLayout;
