@@ -1,4 +1,6 @@
-import Chat from "../features/Chats/Chat";
+import ChatLayout from "../features/Chats/ChatLayout";
+import ChatInput from "../features/Chats/ChatInput";
+import ChatMessages from "../features/Chats/ChatMessages";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 
@@ -8,7 +10,10 @@ const AppLayout = () => {
       <Header />
       <div className="flex h-full">
         <Sidebar />
-        <Chat />
+        <ChatLayout>
+          <ChatMessages />
+          <ChatInput />
+        </ChatLayout>
       </div>
     </main>
   );
