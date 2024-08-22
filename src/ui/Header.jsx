@@ -2,7 +2,12 @@ import SearchChat from "../features/Chats/SearchChat";
 import Logo from "./Logo";
 
 const Header = () => {
-  return <h1 className="bg-green-400 p-2 flex items-center h-16"><Logo /><SearchChat className="mx-auto"/></h1>;
+  return (
+    <nav className="flex h-16 items-center bg-green-400 p-2">
+      <Logo className="h-12 absolute right-2 top-2"/>
+      <SearchChat className="mx-auto" />
+    </nav>
+  );
 };
 
 export default Header;

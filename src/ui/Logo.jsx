@@ -1,7 +1,7 @@
-const Logo = () => {
+const Logo = ({className}) => {
   return (
     <div>
-      <img src="/logo.png" alt="Banter: do you want to go for a chat?" className="rounded-full h-12 absolute right-2 top-2"/>
+      <img src="/logo.png" alt="Banter: do you want to go for a chat?" className={`rounded-full ${className}`}/>
     </div>
   );
 };

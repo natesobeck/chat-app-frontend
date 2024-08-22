@@ -1,10 +1,11 @@
-const SearchChat = ({className}) => {
-  const classes = `max-w-96 rounded-full bg-green-100 px-4 py-1 font-light text-green-900 text-sm ${className ? className : ""}`
+const SearchChat = ({ className }) => {
+  const classes = `max-w-96 rounded-full bg-green-100 px-4 py-1 text-sm font-light text-green-900 outline-0 ring-green-600 ring-offset-2 ring-offset-green-100 transition-all focus:py-1 focus:ring-2 ${className ? className : ""}`;
 
   return (
-    <h1 className={classes}>
-      This is a search component
-    </h1>
+    <input
+      className={classes}
+      placeholder="search"
+    />
   );
 };
 

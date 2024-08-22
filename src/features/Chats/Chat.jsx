@@ -1,5 +1,9 @@
 const Chat = () => {
-  return <h1 className="p-5 font-light">This is where you will have your conversation</h1>;
+  return (
+    <div className="bg-green-50 p-5 flex-grow font-light w-full">
+      This is where you will have your conversation
+    </div>
+  );
 };
 
 export default Chat;

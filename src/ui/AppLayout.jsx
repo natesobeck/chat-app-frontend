@@ -1,14 +1,14 @@
-import Conversation from "../features/Chats/Chat";
+import Chat from "../features/Chats/Chat";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 
 const AppLayout = () => {
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col h-dvh">
       <Header />
-      <div className="flex">
+      <div className="flex h-full">
         <Sidebar />
-        <Conversation />
+        <Chat />
       </div>
     </main>
   );
