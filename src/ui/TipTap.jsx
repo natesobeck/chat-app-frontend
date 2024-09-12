@@ -1,8 +1,11 @@
+import CodeBlock from "@tiptap/extension-code-block";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { FaBold } from "react-icons/fa";
 import { FaItalic } from "react-icons/fa";
 import { FaCode } from "react-icons/fa";
+import { IoMdSend } from "react-icons/io";
+import Button from "./Button";
 
 const TipTapMenu = ({ editor }) => {
   if (!editor) return null;
@@ -17,27 +20,29 @@ const TipTapMenu = ({ editor }) => {
     <div className="flex w-fit gap-1 rounded-md bg-slate-50 p-1">
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
-        className={`${editor.isActive("bold") ? "bg-slate-200 rounded-md" : ""}`}
+        className={`${editor.isActive("bold") ? "rounded-md bg-slate-200" : ""}`}
       >
-        <div className="p-2 flex items-center">
+        <div className="flex items-center p-2">
           <FaBold />
         </div>
       </button>
       <div className="h-8 w-[1px] bg-slate-200"></div>
       <button
         onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={`${editor.isActive("italic") ? "bg-slate-200 rounded-md" : ""}`}
+        className={`${editor.isActive("italic") ? "rounded-md bg-slate-200" : ""}`}
       >
-        <div className="p-2 flex items-center">
+        <div className="flex items-center p-2">
           <FaItalic />
         </div>
       </button>
       <div className="h-8 w-[1px] bg-slate-200"></div>
       <button
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-        className={editor.isActive("codeBlock") ? "bg-slate-200 rounded-md" : ""}
+        className={
+          editor.isActive("codeBlock") ? "rounded-md bg-slate-200" : ""
+        }
       >
-        <div className="p-2 flex items-center">
+        <div className="flex items-center p-2">
           <FaCode />
         </div>
       </button>
@@ -47,28 +52,40 @@ const TipTapMenu = ({ editor }) => {
 
 const TipTap = () => {
   const editor = useEditor({
-    extensions: [StarterKit],
+    extensions: [
+      StarterKit,
+      CodeBlock.configure({
+        HTMLAttributes: {
+          class: "bg-slate-200 w-fit px-2 py-1 rounded-md text-sm",
+        },
+      }),
+    ],
     editorProps: {
       attributes: {
         class:
-          "focus:outline-none bg-slate-50 focus:ring-2 ring-green-200 rounded-md px-2 py-1 h-24",
+          "focus:outline-none bg-slate-50 focus:ring-2 ring-green-200 rounded-md p-1 h-24 overflow-scroll",
       },
-    }
+    },
   });
 
   if (!editor) {
-    return null; // Ensure the editor is initialized before rendering
+    return null;
   }
 
   return (
-    <div className="flex flex-col gap-2 ring-slate-200">
-      {/* BubbleMenu will render when text is selected */}
+    <div className="relative flex flex-col gap-2 ring-slate-200">
       {editor && <TipTapMenu editor={editor}></TipTapMenu>}
 
-      {/* The actual editor content */}
       <div>
         <EditorContent editor={editor} />
       </div>
+
+      <Button
+        type="secondary"
+        className="absolute bottom-2 right-2 rounded bg-green-400 py-2 px-4 font-medium text-green-950 hover:bg-green-300 transition-all focus:ring-2 ring-offset-2 ring-green-400"
+      >
+        <IoMdSend className="fill-green-950"/>
+      </Button>
     </div>
   );
 };
