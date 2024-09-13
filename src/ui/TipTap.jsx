@@ -1,6 +1,6 @@
-import CodeBlock from "@tiptap/extension-code-block";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import CodeBlock from "@tiptap/extension-code-block";
 import { FaBold } from "react-icons/fa";
 import { FaItalic } from "react-icons/fa";
 import { FaCode } from "react-icons/fa";
@@ -10,11 +10,11 @@ import Button from "./Button";
 const TipTapMenu = ({ editor }) => {
   if (!editor) return null;
 
-  const logContent = () => {
-    const jsonContent = editor.getJSON();
-    console.log("Editor JSON Content:", JSON.stringify(jsonContent, null, 2));
-  };
-  logContent();
+  // const logContent = () => {
+  //   const jsonContent = editor.getJSON();
+  //   console.log("Editor JSON Content:", JSON.stringify(jsonContent, null, 2));
+  // };
+  // logContent();
 
   return (
     <div className="flex w-fit gap-1 rounded-md bg-slate-50 p-1">
@@ -53,11 +53,12 @@ const TipTapMenu = ({ editor }) => {
 const TipTap = () => {
   const editor = useEditor({
     extensions: [
-      StarterKit,
-      CodeBlock.configure({
-        HTMLAttributes: {
-          class: "bg-slate-200 w-fit px-2 py-1 rounded-md text-sm",
-        },
+      StarterKit.configure({
+        extensions: [CodeBlock.configure({
+          HTMLAttributes: {
+            class: "bg-slate-200 w-fit px-2 py-1 rounded-md text-sm",
+          },
+        })]
       }),
     ],
     editorProps: {

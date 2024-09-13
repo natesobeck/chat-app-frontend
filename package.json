@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@tiptap/extension-bold": "^2.6.6",
-    "@tiptap/extension-code": "^2.6.6",
     "@tiptap/extension-code-block": "^2.6.6",
     "@tiptap/extension-floating-menu": "^2.6.6",
     "@tiptap/extension-italic": "^2.6.6",

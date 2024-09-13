@@ -38,6 +38,7 @@ export const chat = {
             "content": [
               {
                 "type": "text",
+                "marks": [{"type": "code"}],
                 "text": "I'm good, thanks! How about you?"
               }
             ]
@@ -115,6 +116,7 @@ export const chat = {
     },
     {
       "senderId": 102,
+      "messageId": 6,
       "timeStamp": "2024-09-02T10:12:00Z",
       "isRead": true,
       "isEdited": false,
