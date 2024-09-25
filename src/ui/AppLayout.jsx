@@ -1,19 +1,17 @@
-import ChatLayout from "../features/Chats/ChatLayout";
-import ChatInput from "../features/Chats/ChatInput";
-import ChatMessages from "../features/Chats/ChatMessages";
+import { Outlet } from "react-router-dom";
+import Chat from "../features/Chats/Chat";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 
 const AppLayout = () => {
   return (
-    <main className="flex flex-col h-dvh">
+    <main className="flex h-dvh flex-col">
       <Header />
       <div className="flex h-full">
         <Sidebar />
-        <ChatLayout>
-          <ChatMessages />
-          <ChatInput />
-        </ChatLayout>
+        <div className="flex w-full h-full">
+          <Outlet />
+        </div>
       </div>
     </main>
   );

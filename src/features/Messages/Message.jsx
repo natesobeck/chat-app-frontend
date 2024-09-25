@@ -58,7 +58,7 @@ const Message = ({ message }) => {
       <h3 className="px-1 text-green-950 bg-green-50">
         <strong className="font-semibold">{senderName}</strong>
         <span className="italic text-sm text-slate-400 pl-1 text-[11px]">
-          {new Date(message.timeStamp).toLocaleTimeString()}
+          {new Date(message.timeStamp).toLocaleTimeString()}, {new Date(message.timeStamp).toLocaleDateString()}
         </span>
       </h3>
       <div className="px-1 bg-green-50">{flattenMessage(message.content)}</div>
